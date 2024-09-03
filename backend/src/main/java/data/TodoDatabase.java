@@ -31,8 +31,8 @@ public class TodoDatabase {
 						this.username = username;
 						this.password = password;
 				}
-				
-				public Connection getConnection() throws SQLException {
+
+				public Optional<Connection> getConnection() throws SQLException {
 						// Get Driver class name
 						String driverClassName = "";
 						switch (this.databaseType) {
@@ -49,6 +49,7 @@ public class TodoDatabase {
 										ConsoleLogger.infoGBL(this.getClass().getName(), "loaded driver " + driverClassName);
 								} else {
 										ConsoleLogger.debugGBL(this.getClass().getName(), "driver " + driverClassName + " already loaded");
+										return Optional.empty();
 								}
 
 						} catch (Exception e) {
@@ -56,7 +57,8 @@ public class TodoDatabase {
 						}
 
 						// Return connection
-						return DriverManager.getConnection(this.connectionUrl, this.username, this.password);
+						Connection connection = DriverManager.getConnection(this.connectionUrl, this.username, this.password);
+						return Optional.of(connection);
 				}
 				// TODO saveToFile
 
@@ -77,10 +79,10 @@ public class TodoDatabase {
 						connectionUrl += ';' + k + '=' + properties.get(k);
 				}
 
-				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
 				TodoDatabase result = new TodoDatabase(DatabaseType.SqlServer, connectionUrl, username, password);
 
-
+				return result;
 		}
 
 
