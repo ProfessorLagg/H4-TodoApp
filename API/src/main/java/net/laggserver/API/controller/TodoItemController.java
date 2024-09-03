@@ -20,10 +20,17 @@ public class TodoItemController {
 		}
 
 		@PostMapping
-		public TodoItem createTodoItem(@RequestBody TodoItem todoItem) {
-				TodoItem result = todoItemRepository.save(todoItem);
-				return result;
+		public TodoItem createTodoItem(@RequestBody TodoItem todoItem) { return todoItemRepository.save(todoItem); }
 
+		@GetMapping("xp/{id}")
+		public ResponseEntity<Long> getTodoItemXP(@PathVariable Long id){
+				Optional<TodoItem> itemOptional = todoItemRepository.findById(id);
+				if (itemOptional.isPresent()) {
+						TodoItem item = itemOptional.get();
+						return ResponseEntity.ok().body(item.CalculateXp());
+				} else {
+						return ResponseEntity.notFound().build();
+				}
 		}
 
 		@GetMapping("/{id}")

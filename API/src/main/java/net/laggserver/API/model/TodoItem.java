@@ -9,43 +9,49 @@ import java.time.ZonedDateTime;
 @Table(name = "TODOITEMS")
 public class TodoItem {
 		public enum TaskHateLevel {
-				LOVE((byte) 1), LIKE((byte) 2), INDIFFERENT((byte) 3), DISLIKE((byte) 4), HATE((byte) 5);
+				LOVE((byte) 0), LIKE((byte) 1), INDIFFERENT((byte) 2), DISLIKE((byte) 3), HATE((byte) 4);
 				public final byte value;
 
 				private TaskHateLevel(byte value) { this.value = value; }
 		}
 
 		public enum TaskImportance {
-				LOWEST((byte) 1), LOW((byte) 2), MEDIUM((byte) 3), HIGH((byte) 4), HIGHEST((byte) 5);
+				LOWEST((byte) 0), LOW((byte) 1), MEDIUM((byte) 2), HIGH((byte) 3), HIGHEST((byte) 4);
 				public final byte value;
 
 				private TaskImportance(byte value) { this.value = value; }
 		}
 
+		public Long CalculateXp() {
+				double result = this.duration.toSeconds();
+				result *= Math.log(3.0 + ((double) this.hatelevel.value));
+				result *= Math.log(3.0 + ((double) this.hatelevel.value));
+				return Math.round(result);
+		}
+
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		@Column(name = "id")
 		private long id;
 
-		@Column(name = "title")
+		@Column(name = "title", nullable = false)
 		public String title;
 
-		@Column(name = "description")
+		@Column(name = "description", nullable = true)
 		public String description;
 
-		@Column(name = "deadline")
+		@Column(name = "deadline", nullable = false)
 		public ZonedDateTime deadline;
 
-		@Column(name = "completed")
+		@Column(name = "completed", nullable = false)
 		public boolean completed;
 
-		@Column(name = "duration")
+		@Column(name = "duration", nullable = false)
 		public Duration duration;
 
-		@Column(name = "hatelevel")
+		@Column(name = "hatelevel", nullable = false)
 		public TaskHateLevel hatelevel;
 
-		@Column(name = "importance")
+		@Column(name = "importance", nullable = false)
 		public TaskImportance importance;
 
 		public long getId() { return id; }

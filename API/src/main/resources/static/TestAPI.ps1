@@ -15,7 +15,9 @@ $todoItems = Import-Csv -Path "$PSScriptRoot\TodoItems.csv" -Delimiter ';' | Sel
     @{Name="hatelevel";Expression={[int]::Parse($_.hatelevel)}}
 
 foreach($todoItem in $todoItems){
-    $jsonString = $todoItem | ConvertTo-Json
-    Write-Host $jsonString
-    Invoke-WebRequest -Uri $url -Method Post -Body $jsonString -Headers @{"Content-Type"="application/json"}
+    $jsonString = $todoItem | ConvertTo-Json -Compress
+    $response = Invoke-WebRequest -Uri $url -Method Post -Body $jsonString -Headers @{"Content-Type"="application/json"}
+    if($null -ne $response){
+        Write-Host "---", $response.RawContent, "---" -Separator "`n"
+    }
 }
