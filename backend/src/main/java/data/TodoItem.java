@@ -9,33 +9,30 @@ import org.json.*;
 
 public class TodoItem implements JSONSerializeable {
 		public enum TaskHateLevel {
-				HATE("Hate", (short) 2),
-				DISLIKE("Dislike", (short) 1),
-				INDIFFERENT("Indifferent", (short) 0),
-				LIKE("Like", (short) -1),
-				LOVE("Love", (short) -2);
+				LOVE((byte) 1),
+				LIKE((byte) 2),
+				INDIFFERENT((byte) 3),
+				DISLIKE((byte) 4),
+				HATE((byte) 5);
 
-				public final String name;
-				public final short value;
 
-				private TaskHateLevel(String name, short value) {
-						this.name = name;
+				public final byte value;
+
+				private TaskHateLevel(byte value) {
 						this.value = value;
 				}
 		}
 
 		public enum TaskImportance {
-				LOWEST("Very Low", (short) -2),
-				LOW("Low", (short) -1),
-				MEDIUM("Medium", (short) 0),
-				HIGH("High", (short) 1),
-				HIGHEST("Very High", (short) 2);
+				LOWEST((byte) 1),
+				LOW((byte) 2),
+				MEDIUM((byte) 3),
+				HIGH((byte) 4),
+				HIGHEST((byte) 5);
 
-				public final String name;
-				public final short value;
+				public final byte value;
 
-				private TaskImportance(String name, short value) {
-						this.name = name;
+				private TaskImportance(byte value) {
 						this.value = value;
 				}
 		}
@@ -47,16 +44,16 @@ public class TodoItem implements JSONSerializeable {
 		public Duration duration;
 		public TaskHateLevel hateLevel;
 		public TaskImportance importance;
+		public Duration recurrence;
 
 		public long calculateXP() {
 				return this.duration.toSeconds() * this.hateLevel.value * this.importance.value;
 		}
 
-		public int getId(){
+		public int getId() {
 				// TODO database stuff
 				return -1;
 		}
-
 
 
 		@Override
