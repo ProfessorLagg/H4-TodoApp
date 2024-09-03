@@ -1,10 +1,10 @@
-package net.laggserver.rpgtodoapi;
+package net.laggserver.API;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RpgtodoapiApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {

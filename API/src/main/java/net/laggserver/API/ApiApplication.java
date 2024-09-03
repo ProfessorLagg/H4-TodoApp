@@ -1,13 +1,13 @@
-package net.laggserver.rpgtodoapi;
+package net.laggserver.API;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RpgtodoapiApplication {
+public class ApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RpgtodoapiApplication.class, args);
+		SpringApplication.run(ApiApplication.class, args);
 	}
 
 }
