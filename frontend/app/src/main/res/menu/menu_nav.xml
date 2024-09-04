@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:icon="@drawable/round_show_chart_24"
+		android:title="Overview" />
+	<item
 		android:icon="@drawable/rounded_today_24"
-		android:iconTint="@color/primary"
-		android:iconTintMode="src_in"
 		android:title="Today" />
+	<item
+		android:icon="@drawable/round_add_24"
+		android:title="New" />
 </menu>

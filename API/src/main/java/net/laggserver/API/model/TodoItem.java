@@ -33,25 +33,25 @@ public class TodoItem {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id;
 
-		@Column(name = "title", nullable = false)
+		@Column(name = "title")
 		public String title;
 
-		@Column(name = "description", nullable = true)
+		@Column(name = "description")
 		public String description;
 
-		@Column(name = "deadline", nullable = false)
+		@Column(name = "deadline")
 		public ZonedDateTime deadline;
 
-		@Column(name = "completed", nullable = false)
+		@Column(name = "completed")
 		public boolean completed;
 
-		@Column(name = "duration", nullable = false)
+		@Column(name = "duration")
 		public Duration duration;
 
-		@Column(name = "hatelevel", nullable = false)
+		@Column(name = "hatelevel")
 		public TaskHateLevel hatelevel;
 
-		@Column(name = "importance", nullable = false)
+		@Column(name = "importance")
 		public TaskImportance importance;
 
 		public long getId() { return id; }

@@ -2,6 +2,7 @@
 <resources>
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
+	<color name="none">#00000000</color>
 
 	<color name="background">@color/design_default_color_background</color>
 	<color name="on_primary">@color/design_default_color_on_primary</color>
@@ -12,6 +13,6 @@
 	<color name="primary_variant">@color/design_default_color_primary_variant</color>
 	<color name="secondary">@color/design_default_color_secondary</color>
 	<color name="secondary_variant">@color/design_default_color_secondary_variant</color>
-<!--	<color name="surface">@color/design_default_color_surface</color>-->
+	<!--	<color name="surface">@color/design_default_color_surface</color>-->
 	<color name="surface">#EEE</color>
 </resources>
