@@ -16,6 +16,6 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:srcCompat="@drawable/rounded_keyboard_backspace_24"
-		app:tint="@color/on_secondary" />
+		app:tint="@color/text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,8 @@
 	<color name="primary_variant">@color/design_default_color_primary_variant</color>
 	<color name="secondary">@color/design_default_color_secondary</color>
 	<color name="secondary_variant">@color/design_default_color_secondary_variant</color>
+	<color name="text">#000</color>
+	<color name="text_hint">#99000000</color>
 	<!--	<color name="surface">@color/design_default_color_surface</color>-->
 	<color name="surface">#EEE</color>
 </resources>

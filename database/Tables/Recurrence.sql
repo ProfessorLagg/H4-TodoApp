@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[Recurrence]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[Interval] SMALLDATETIME NOT NULL
-)

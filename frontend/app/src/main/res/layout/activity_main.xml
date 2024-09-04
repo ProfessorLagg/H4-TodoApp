@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/main"
+	android:id="@+id/create"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/background"
@@ -20,7 +20,7 @@
 		android:animateLayoutChanges="false"
 		android:background="#33000000"
 		android:orientation="horizontal"
-		android:visibility="gone"
+		android:visibility="visible"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
@@ -36,8 +36,8 @@
 			android:paddingVertical="8dp"
 			app:headerLayout="@layout/navheader_layout"
 			app:itemHorizontalPadding="24dp"
-			app:itemIconTint="@color/on_secondary"
-			app:itemTextColor="@color/on_secondary"
+			app:itemIconTint="@color/text"
+			app:itemTextColor="@color/text"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintHeight_min="48dp"
 			app:layout_constraintStart_toStartOf="parent"
@@ -57,5 +57,18 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:srcCompat="@drawable/round_menu_24" />
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/currentPageWrap"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="48dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_weight="0">
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
